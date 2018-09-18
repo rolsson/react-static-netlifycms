@@ -25,7 +25,9 @@ collections:
     label_singular: "Page"
     folder: "src/pages"
     create: true
-    slug: "{{slug}}"
+    slug:
+      encoding: "ascii"
+      clean_accents: true
     fields: 
       - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string"}
