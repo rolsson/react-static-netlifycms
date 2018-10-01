@@ -44,7 +44,7 @@ function getPosts () {
 export default {
 
   getSiteData: () => ({
-    title: 'React Static with Netlify CMS',
+    title: 'Argasso bokförlag',
   }),
   getRoutes: async () => {
     const posts = await getPosts()
