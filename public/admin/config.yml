@@ -38,10 +38,19 @@ collections:
     create: false
     slug: "{{slug}}"
     fields: 
-      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Published", name: "published", widget: "boolean"}
       - {label: "Image", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "authors"
+    label: "Författare"
+    label_singular: "Bok"
+    folder: "cms/authors"
+    create: true
+    slug: "{{slug}}"
+    fields: 
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Image", name: "thumbnail", widget: "image"}
   - name: "books"
     label: "Böcker"
     label_singular: "Bok"
