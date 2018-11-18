@@ -1,19 +1,18 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: master
 
-media_folder: "public/uploads" # Media files will be stored in the repo under public/uploads
-public_folder: "/uploads" # Folder path where uploaded files will be accessed, relative to the base of the built site
+media_folder: "public/uploads"
+public_folder: "/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Post" # Used in the UI
-    folder: "src/posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter. 
-    # Remove any that aren't needed for posts
+  - name: "blog"
+    label: "Post"
+    folder: "src/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
@@ -53,7 +52,7 @@ collections:
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Författre", name: "author", widget: "string"}
       - {label: "Illustrationer", name: "illustrations", widget: "string"}
-      - {label: "ISBN", name: "isbn", widget: "string", pattern: ['[0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*', 'Must be ISBN format']
+      - {label: "ISBN", name: "isbn", widget: "string", pattern: ["[0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*", "Must be ISBN format"]}
       - {label: "Publicerad", name: "published", widget: "boolean"}
       - {label: "Utgått", name: "discontinued", widget: "boolean"}
       - {label: "Omslag", name: "thumbnail", widget: "image"}
