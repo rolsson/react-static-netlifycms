@@ -24,4 +24,4 @@ translated:
   originalTitle: The Harder They Fall
 audio: {}
 ---
-
+Jacob tillrätta på skolan, men Jacob vill inte ha någon hjälp. Och minst av allt vill han att någon i skolan ska få reda på att han och hans familj måste gå till ett soppkök varje dag för att få mat. Men Cal och hans mamma jobbar i soppköket ibland, och snart är Jacobs hemlighet avslöjad. Cal har inte skvallrat för någon, men det finns andra i skolan som inte drar sig för att göra livet surt för den nya, tjuriga killen …
