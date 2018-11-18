@@ -1,10 +1,8 @@
 ---
 title: Ju hårdare du faller
 author: Bali Rai
-illustrations: Okänd
 isbn: 978-91-88577-23-8
 published: true
-discontinued: true
 thumbnail: /uploads/ju_hardare_du_faller_9789188577238_300_10.jpg
 price: 105
 shortDescription: >-
@@ -18,9 +16,9 @@ longDescription: >-
   soppköket ibland, och snart är Jacobs hemlighet avslöjad. Cal har inte
   skvallrat för någon, men det finns andra i skolan som inte drar sig för att
   göra livet surt för den nya, tjuriga killen …
-month: Jan -19
+publishMonth: Jan -19
 binding: Inbunden
-number: 12
+age: 12
 numPages: 130
 translated:
   originalTitle: The Harder They Fall
