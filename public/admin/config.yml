@@ -32,25 +32,25 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "categories"
-    label: "Categories"
-    label_singular: "Category"
+    label: "Kategorier"
+    label_singular: "Kategori"
     folder: "src/cms/categories"
     create: false
     slug: "{{slug}}"
     fields: 
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Published", name: "published", widget: "boolean"}
-      - {label: "Image", name: "thumbnail", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Publicerad", name: "published", widget: "boolean"}
+      - {label: "Bild", name: "thumbnail", widget: "image"}
+      - {label: "Beksrivning", name: "description", widget: "markdown"}
   - name: "authors"
     label: "Författare"
-    label_singular: "Bok"
+    label_singular: "Författare"
     folder: "src/cms/authors"
     create: true
     slug: "{{slug}}"
     fields: 
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Image", name: "thumbnail", widget: "image"}
+      - {label: "Namn", name: "title", widget: "string"}
+      - {label: "Porträtt", name: "thumbnail", widget: "image"}
   - name: "books"
     label: "Böcker"
     label_singular: "Bok"
