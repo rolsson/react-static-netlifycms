@@ -51,6 +51,7 @@ collections:
     fields: 
       - {label: "Namn", name: "title", widget: "string"}
       - {label: "Porträtt", name: "thumbnail", widget: "image"}
+      - {label: "Beskrivning", name: "body", widget: "markdown"}
   - name: "books"
     label: "Böcker"
     label_singular: "Bok"
@@ -68,6 +69,7 @@ collections:
       - {label: "Pris", name: "price", widget: "number", valueType: 'int', min: 1, max: 1000}
       - {label: "Kort Beskrivning", name: "shortDescription", widget: "string"}
       - {label: "Detaljerad Beskrivning", name: "longDescription", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Utgivningsmånad", name: "publishMonth", widget: "date", format: 'MMM -YY'}
       - {label: "Bindning", name: "binding", widget: "select", options: ['Kartonnage', 'Häftad', 'Inbunden', 'Flexband', 'Danskt band', 'CD-bok']}
       - {label: "Rekommenderad ålder", name: "age", widget: "number", valueType: 'int', min: 1, max: 99}
