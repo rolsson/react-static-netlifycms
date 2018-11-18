@@ -19,18 +19,18 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - name: "pages"
-    label: "Pages"
-    label_singular: "Page"
-    folder: "src/pages"
-    create: true
-    slug: "{{slug}}"
-    fields: 
-      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "pages"
+  #   label: "Pages"
+  #   label_singular: "Page"
+  #   folder: "src/pages"
+  #   create: true
+  #   slug: "{{slug}}"
+  #   fields: 
+  #     - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Publish Date", name: "date", widget: "datetime"}
+  #     - {label: "Featured Image", name: "thumbnail", widget: "image"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
   - name: "categories"
     label: "Kategorier"
     label_singular: "Kategori"
@@ -86,3 +86,25 @@ collections:
         fields:
         - {label: "Speltid", name: "duration", widget: "string"}
         - {label: "Uppläsare", name: "reciter", widget: "string"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Startsida"
+        name: "index"
+        file: "content/index.md"
+        fields: 
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: string}
+          - label: Banners
+            name: banners
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Bild, name: image, widget: image}
+          - label: Kommande
+            name: kommande
+            widget: list  
+            fields: 
+              - {label: Bok, name: book, widget: relation, collection: books, searchFields: ["title"], valueField: title, displayFields: ["title", "author", "published"]}
+              - {label: Text, name: text, widget: markdown}
+
