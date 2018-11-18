@@ -5,7 +5,7 @@ banners:
   - image: /uploads/image.jpg
     name: Bild 1
 kommande:
-  - book: ju-hårdare-du-faller
+  - book: dskljlkjlklkj
     text: Detta är en ny bok från Rai.
 ---
 
