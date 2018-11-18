@@ -67,7 +67,7 @@ collections:
       - {label: "Utgått", name: "discontinued", widget: "boolean", required: false}
       - {label: "Omslag", name: "thumbnail", widget: "image"}
       - {label: "Pris", name: "price", widget: "number", valueType: 'int', min: 1, max: 1000}
-      - {label: "Kort Beskrivning", name: "shortDescription", widget: "string"}
+      - {label: "Kort Beskrivning", name: "shortDescription", widget: "text"}
       - {label: "Detaljerad Beskrivning", name: "longDescription", widget: "markdown"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Utgivningsmånad", name: "publishMonth", widget: "date", format: 'MMM -YY'}
@@ -105,6 +105,6 @@ collections:
             name: kommande
             widget: list  
             fields: 
-              - {label: Bok, name: book, widget: relation, collection: books, searchFields: ["title"], valueField: title, displayFields: ["title", "author", "published"]}
+              - {label: Bok, name: book, widget: relation, collection: books, searchFields: ["title"], valueField: title, displayFields: ["title"]}
               - {label: Text, name: text, widget: markdown}
 
