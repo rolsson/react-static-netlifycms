@@ -32,3 +32,47 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    folder: "cms/categories"
+    create: false
+    slug: "{{slug}}"
+    fields: 
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Published", name: "published", widget: "boolean"}
+      - {label: "Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "books"
+    label: "Böcker"
+    label_singular: "Bok"
+    folder: "cms/books"
+    create: true
+    slug: "{{slug}}"
+    fields: 
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Författre", name: "author", widget: "string"}
+      - {label: "Illustrationer", name: "illustrations", widget: "string"}
+      - {label: "ISBN", name: "isbn", widget: "string", pattern: ['[0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*[-| ][0-9]*', 'Must be ISBN format']
+      - {label: "Publicerad", name: "published", widget: "boolean"}
+      - {label: "Utgått", name: "discontinued", widget: "boolean"}
+      - {label: "Omslag", name: "thumbnail", widget: "image"}
+      - {label: "Pris", name: "price", widget: "number", valueType: 'int', min: 1, max: 1000}
+      - {label: "Kort Beskrivning", name: "shortDescription", widget: "string"}
+      - {label: "Detaljerad Beskrivning", name: "longDescription", widget: "markdown"}
+      - {label: "Utgivningsmånad", name: "month", widget: "date", format: 'MMM -YY'}
+      - {label: "Bindning", name: "binding", widget: "select", options: ['Kartonnage', 'Häftad', 'Inbunden', 'Flexband', 'Danskt band', 'CD-bok']}
+      - {label: "Rekommenderad ålder", name: "number", widget: "number", valueType: 'int', min: 1, max: 99}
+      - {label: "Antal sidor", name: "numPages", widget: "number", valueType: 'int', min: 1, max: 1000}
+      - label: 'Översatt bok'
+        name: 'translated'
+        widget: 'object'
+        fields:
+        - {label: "Översättning", name: "translator", widget: "string"}
+        - {label: "Orginaltitel", name: "originalTitle", widget: "string"}
+      - label: 'Ljudbok'
+        name: 'audio'
+        widget: 'object'
+        fields:
+        - {label: "Speltid", name: "duration", widget: "string"}
+        - {label: "Uppläsare", name: "reciter", widget: "string"}

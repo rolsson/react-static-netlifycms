@@ -1,3 +1,6 @@
+import React, { Component } from 'react'
+import flush from 'styled-jsx/server'
+
 const fs = require('fs')
 const klaw = require('klaw')
 const path = require('path')
@@ -76,5 +79,29 @@ export default {
         component: 'src/containers/404',
       },
     ]
+  },
+  renderToHtml: (render, Comp, meta) => {
+    const html = render(<Comp />)
+    const styles = flush()
+    meta.styleTags = styles
+    return html
+  },
+  Document: class CustomHtml extends Component {
+    render () {
+      const {
+        Html, Head, Body, children, renderMeta,
+      } = this.props
+
+      return (
+        <Html>
+          <Head>
+            <meta charSet="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            {renderMeta.styleTags}
+          </Head>
+          <Body>{children}</Body>
+        </Html>
+      )
+    }
   },
 }
