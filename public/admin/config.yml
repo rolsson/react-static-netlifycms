@@ -34,7 +34,7 @@ collections:
   - name: "categories"
     label: "Categories"
     label_singular: "Category"
-    folder: "cms/categories"
+    folder: "src/cms/categories"
     create: false
     slug: "{{slug}}"
     fields: 
@@ -45,7 +45,7 @@ collections:
   - name: "authors"
     label: "Författare"
     label_singular: "Bok"
-    folder: "cms/authors"
+    folder: "src/cms/authors"
     create: true
     slug: "{{slug}}"
     fields: 
@@ -54,7 +54,7 @@ collections:
   - name: "books"
     label: "Böcker"
     label_singular: "Bok"
-    folder: "cms/books"
+    folder: "src/cms/books"
     create: true
     slug: "{{slug}}"
     fields: 
