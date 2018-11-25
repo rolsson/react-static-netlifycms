@@ -6,13 +6,17 @@ const klaw = require('klaw')
 const path = require('path')
 const matter = require('gray-matter')
 
-function getPosts () {
+if (typeof require !== 'undefined') {
+  require.extensions['.sass'] = (file) => {}
+}
+
+function getContent (contentPath) {
   const items = []
   // Walk ("klaw") through posts directory and push file paths into items array //
   const getFiles = () => new Promise(resolve => {
     // Check if posts directory exists //
-    if (fs.existsSync('./src/posts')) {
-      klaw('./src/posts')
+    if (fs.existsSync(contentPath)) {
+      klaw(contentPath)
         .on('data', item => {
           // Filter function to retrieve .md files //
           if (path.extname(item.path) === '.md') {
@@ -45,16 +49,42 @@ function getPosts () {
 }
 
 export default {
-
+  plugins: ['react-static-plugin-sass'],
+  webpack: [(config) => {
+    console.log("webpack", config)
+    // config.merge({
+    //   resolve: {
+    //     alias: {
+    //       '_variables.sass': path.resolve(__dirname, './src/_variables.sass')
+    //     }
+    //   }
+    // })
+    return config
+  },
+  (config) => {
+    console.log(config) // Log out the final set of rules
+  }],
   getSiteData: () => ({
     title: 'Argasso bokförlag',
   }),
   getRoutes: async () => {
-    const posts = await getPosts()
+    const posts = await getContent('./src/posts')
+    console.log(posts)
+    const books = await getContent('./src/cms/books')
+    console.log(books)
+    const authors = await getContent('./src/cms/authors')
     return [
       {
         path: '/',
         component: 'src/containers/Home',
+      },
+      {
+        path: '/books',
+        component: 'src/containers/Books',
+        getData: () => ({
+          books,
+          authors,
+        }),
       },
       {
         path: '/about',
@@ -75,33 +105,33 @@ export default {
         })),
       },
       {
-        is404: true,
+        path: '/404',
         component: 'src/containers/404',
       },
     ]
   },
-  renderToHtml: (render, Comp, meta) => {
-    const html = render(<Comp />)
-    const styles = flush()
-    meta.styleTags = styles
-    return html
-  },
-  Document: class CustomHtml extends Component {
-    render () {
-      const {
-        Html, Head, Body, children, renderMeta,
-      } = this.props
+  // renderToHtml: (render, Comp, meta) => {
+  //   const html = render(<Comp />)
+  //   const styles = flush()
+  //   meta.styleTags = styles
+  //   return html
+  // },
+  // Document: class CustomHtml extends Component {
+  //   render () {
+  //     const {
+  //       Html, Head, Body, children, renderMeta,
+  //     } = this.props
 
-      return (
-        <Html>
-          <Head>
-            <meta charSet="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            {renderMeta.styleTags}
-          </Head>
-          <Body>{children}</Body>
-        </Html>
-      )
-    }
-  },
+  //     return (
+  //       <Html>
+  //         <Head>
+  //           <meta charSet="UTF-8" />
+  //           <meta name="viewport" content="width=device-width, initial-scale=1" />
+  //           {renderMeta.styleTags}
+  //         </Head>
+  //         <Body>{children}</Body>
+  //       </Html>
+  //     )
+  //   }
+  // },
 }

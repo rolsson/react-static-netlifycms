@@ -1,39 +1,23 @@
 import React from 'react'
-import { Router, Link } from 'react-static'
-import { hot } from 'react-hot-loader'
-//
-import Routes from 'react-static-routes'
+import { Root, Routes } from 'react-static'
+// import { hot } from 'react-hot-loader'
+// import { Link } from '@reach/router'
 
-import './app.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
+import './app.scss'
 
 const App = () => (
-  <Router>
-    <div>
-      <nav>
-        <Link exact to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
-      </nav>
-      <div className="content">
-        <Routes />
-      </div>
-      <style jsx global>{`
-        nav {
-          width: 100%;
-          background: #108db8;
-        }
-        nav a {
-          color: white;
-          padding: 1rem;
-          display: inline-block;
-        }
-        .content {
-          padding: 1rem;
-        }
-      `}</style>
-    </div>
-  </Router>
+  <Root>
+    <Header heroTitle="Välkommen till Grå bokförlag"/>
+          
+    <main>
+      <Routes />
+    </main>
+
+    <Footer />
+  </Root>
 )
 
-export default hot(module)(App)
-// export default App
+export default App

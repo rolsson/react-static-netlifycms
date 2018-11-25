@@ -1,10 +1,12 @@
 
 import React from 'react'
-//
+
+import Container from 'react-bulma-components/lib/components/container'
+import Heading from 'react-bulma-components/lib/components/heading'
 
 export default () => (
-  <div>
-    <h1>Om förlaget</h1>
+  <Container>
+    <Heading>Om förlaget</Heading>
     <p>
       Argasso är ett barnboksförlag som etablerades i december 2002 och ger ut 18–20 titlar per år.
       Sedan några år tillbaka publicerar förlaget även 5–10 e-böcker årligen.
@@ -29,5 +31,5 @@ export default () => (
       kort boken är. Vår ambition är att vara en inkörsport till litteraturens värld för unga
       människor.
     </p>
-  </div>
+  </Container>
 )

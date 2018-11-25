@@ -1,11 +1,14 @@
 import React from 'react'
 import { withSiteData } from 'react-static'
 //
-import logoImg from '../logo.png'
+import Container from 'react-bulma-components/lib/components/container'
+import Heading from 'react-bulma-components/lib/components/heading'
+import Section from 'react-bulma-components/lib/components/section'
 
 export default withSiteData(() => (
-  <div>
-    <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
-    <img src={logoImg} alt="" />
-  </div>
+  <Section>
+    <Container>
+      <Heading>Under construction</Heading>
+    </Container>
+  </Section>
 ))

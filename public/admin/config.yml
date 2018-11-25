@@ -22,7 +22,7 @@ collections:
   # - name: "pages"
   #   label: "Pages"
   #   label_singular: "Page"
-  #   folder: "src/pages"
+  #   folder: "src/md"
   #   create: true
   #   slug: "{{slug}}"
   #   fields: 
@@ -105,6 +105,6 @@ collections:
             name: kommande
             widget: list  
             fields: 
-              - {label: Bok, name: book, widget: relation, collection: books, searchFields: ["title"], valueField: title, displayFields: ["title"]}
+              - {label: Bok, name: book, widget: relation, collection: books, searchFields: ["title"], valueField: title}
               - {label: Text, name: text, widget: markdown}
 
