@@ -16,7 +16,7 @@ export default ({heroTitle, heroSubTitle}) => (
         <Hero.Body>
           <Container>
             <Heading>
-              Välkommen till Argasso bokförlag
+              Välkommen till Grå bokförlag
             </Heading>
             <Heading subtitle size={3}>
               Lite lättare att att läsa
