@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import flush from 'styled-jsx/server'
 
+import path from 'path'
+import axios from 'axios'
+
 const fs = require('fs')
 const klaw = require('klaw')
-const path = require('path')
 const matter = require('gray-matter')
 
 if (typeof require !== 'undefined') {
@@ -49,21 +51,17 @@ function getContent (contentPath) {
 }
 
 export default {
-  plugins: ['react-static-plugin-sass'],
-  webpack: [(config) => {
-    console.log("webpack", config)
-    // config.merge({
-    //   resolve: {
-    //     alias: {
-    //       '_variables.sass': path.resolve(__dirname, './src/_variables.sass')
-    //     }
-    //   }
-    // })
-    return config
-  },
-  (config) => {
-    console.log(config) // Log out the final set of rules
-  }],
+  plugins: [
+    // [
+    //   require.resolve('react-static-plugin-source-filesystem'),
+    //   {
+    //     location: path.resolve('./src/containers'),
+    //   },
+    // ],
+    require.resolve('react-static-plugin-reach-router'),
+    require.resolve('react-static-plugin-sitemap'),
+    require.resolve('react-static-plugin-sass'),
+  ],
   getSiteData: () => ({
     title: 'Argasso bokförlag',
   }),
@@ -76,11 +74,11 @@ export default {
     return [
       {
         path: '/',
-        component: 'src/containers/Home',
+        template: 'src/containers/Home',
       },
       {
         path: '/books',
-        component: 'src/containers/Books',
+        template: 'src/containers/Books',
         getData: () => ({
           books,
           authors,
@@ -88,17 +86,17 @@ export default {
       },
       {
         path: '/about',
-        component: 'src/containers/About',
+        template: 'src/containers/About',
       },
       {
         path: '/blog',
-        component: 'src/containers/Blog',
+        template: 'src/containers/Blog',
         getData: () => ({
           posts,
         }),
         children: posts.map(post => ({
           path: `/post/${post.data.slug}`,
-          component: 'src/containers/Post',
+          template: 'src/containers/Post',
           getData: () => ({
             post,
           }),
@@ -106,7 +104,7 @@ export default {
       },
       {
         path: '/404',
-        component: 'src/containers/404',
+        template: 'src/containers/404',
       },
     ]
   },
